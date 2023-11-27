@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fantasy Books</title>
+  <style>
+    body {
+      background-color: #000;
+      color: #fff;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .book {
+      position: relative;
+      margin: 10px;
+      overflow: hidden;
+      cursor: pointer;
+    }
+
+    .book img {
+      width: 250px;
+      height: 300px;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .book:hover img {
+      transform: scale(1.1);
+    }
+  </style>
+</head>
+<body>
+
+<div id="bookList"></div>
+
+<script>
+  const books = [
+    { name: "A Runious Fate", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThJvR5kjyJlz7wPCJa9xt_fRJ3zWcEPsN5dg&usqp=CAU"},
+    { name: "Iron Flame", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRojVbjrYdJ-h2PZWTMBncfNefUCFOhEi7b5Q&usqp=CAU" },
+    { name: "Immortal", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSOnSBKvv7Fgj_UXSYuhFx4X9iC4LPkaxGzxQ&usqp=CAU" },
+    { name: "Fourth Wing", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSDWtiFGsVSZaJOMemgCckfq7MDkQzFDLCWgeMTsU_S_FCl0UkXzn9c5z9wvqSGU9rLS0Q&usqp=CAU" },
+    { name: "The Ruin Of Kings", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLEW2bn3LyM_i-bU3FgPFkubo4N8KdTO9uLzb1dXo83yT6dToe6YU0ID8lpnf5ouBwXO4&usqp=CAU" },
+    // Add more book objects as needed
+  ];
+
+  function renderBooks() {
+    const bookList = document.getElementById('bookList');
+
+    books.forEach(book => {
+      const bookElement = document.createElement('div');
+      bookElement.className = 'book';
+      bookElement.innerHTML = `<img src="${book.image}" alt="${book.name}"><p>${book.name}</p>`;
+      bookElement.addEventListener('click', () => alert(`Clicked on ${book.name}`));
+      bookList.appendChild(bookElement);
+    });
+  }
+
+  // Call the function to render books on page load
+  renderBooks();
+</script>
+<pre><p>
+    <a href="#" class="more-link">more</a>...
+   </p></pre>
+</body>
+</html>
